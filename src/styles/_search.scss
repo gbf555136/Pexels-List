@@ -1,0 +1,33 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  form {
+    input,
+    button {
+      padding: 0.3rem 0.5rem;
+      font-size: 1.5rem;
+      border: 2px solid black;
+    }
+    input {
+      width: 30vw;
+      min-width: 150px;
+    }
+    button {
+      background-color: rgb(71, 71, 71);
+      color: white;
+      border-left: none;
+      svg {
+        // pointer-events: none;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(160, 160, 160);
+        color: rgb(71, 71, 71);
+      }
+    }
+  }
+}

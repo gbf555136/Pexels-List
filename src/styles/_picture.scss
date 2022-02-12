@@ -1,0 +1,31 @@
+.pictures {
+  width: 85vw;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .picture {
+    padding: 1rem 0.5rem;
+    // 290 * 5 = 1450 > 1440，max-column = 4
+    flex: 1 1 290px;
+    max-width: 360px;
+    text-align: center;
+    .container {
+      height: 40vh;
+      overflow: hidden;
+      a {
+        img {
+          width: 100%;
+          height: 100%;
+          transition: transform 0.3s;
+          object-fit: cover;
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+}
