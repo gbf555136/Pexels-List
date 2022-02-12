@@ -10,7 +10,7 @@
 
 ## 說明
 
-- 串接[Pexels API](https://www.pexels.com/zh-tw/) ，顯示精選相片和精選影片
+- 串接[Pexels](https://www.pexels.com/zh-tw/)的 API，顯示精選相片和精選影片
 
 - 上方搜尋框可輸入關鍵字搜尋
 
