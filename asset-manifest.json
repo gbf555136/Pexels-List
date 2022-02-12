@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gbf555136/Pexels-List/static/css/main.3cd34321.css",
+    "main.js": "/gbf555136/Pexels-List/static/js/main.d8402633.js",
+    "index.html": "/gbf555136/Pexels-List/index.html",
+    "main.3cd34321.css.map": "/gbf555136/Pexels-List/static/css/main.3cd34321.css.map",
+    "main.d8402633.js.map": "/gbf555136/Pexels-List/static/js/main.d8402633.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3cd34321.css",
+    "static/js/main.d8402633.js"
+  ]
+}
