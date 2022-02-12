@@ -6,9 +6,9 @@
 
 - `React`框架撰寫
 
-- `SCSS`製作 RWD 排版
+- 使用`SCSS`、`Font Awesome`套件
 
-- `Font Awesome`顯示 Icon
+- `RWD`排版
 
 ## 說明
 
