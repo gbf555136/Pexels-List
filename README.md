@@ -1,6 +1,6 @@
 # Pexels-List
 
-[Pexels-List](https://gbf555136.github.io/Pexels-List/)
+- [Demo](https://gbf555136.github.io/Pexels-List/)
 
 - `React`框架撰寫
 
@@ -10,8 +10,8 @@
 
 ## 說明
 
-- 串接[Pexels API](https://www.pexels.com/zh-tw/) ，顯示精選相片和精選影片。
+- 串接[Pexels API](https://www.pexels.com/zh-tw/) ，顯示精選相片和精選影片
 
-- 上方搜尋框可輸入關鍵字搜尋。
+- 上方搜尋框可輸入關鍵字搜尋
 
-- 點擊 Load More 讀取下一頁。
+- 點擊 Load More 讀取下一頁
