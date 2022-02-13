@@ -8,7 +8,7 @@
 
 - 使用`SCSS`、`Font Awesome`套件
 
-- `RWD`排版
+- `RWD`設計
 
 ## 說明
 
