@@ -8,9 +8,14 @@ const Video = ({ data }) => {
   };
   const handleVideoMouseOut = (e) => {
     //video載入完成以後才暫停
-    e.target.play().then(() => {
-      e.target.pause();
-    });
+    e.target
+      .play()
+      .then(() => {
+        e.target.pause();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

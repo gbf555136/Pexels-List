@@ -8,7 +8,7 @@ const Search = ({ setInput }) => {
   };
   return (
     <div className="search">
-      <form action="" onSubmit={searchHandler}>
+      <form action="" onSubmit={searchHandler} acceptCharset="UTF-8">
         <input type="text" placeholder="keyword" required />
         <button type="submit">
           <FontAwesomeIcon icon={faMagnifyingGlass} />

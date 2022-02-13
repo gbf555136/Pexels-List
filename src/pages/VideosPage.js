@@ -15,7 +15,7 @@ const VideosPage = () => {
   const getVideos = () => {
     //page=1
     const init_url = `https://api.pexels.com/videos/popular?page=1&per_page=${per_page}`;
-    const search_url = `https://api.pexels.com/videos/search?query=${input}&page=1&per_page=${per_page}`;
+    const search_url = `https://api.pexels.com/videos/search?query=${input}&page=1&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
     const url = input ? search_url : init_url;
     fetch(url, {
       headers: {
@@ -27,6 +27,7 @@ const VideosPage = () => {
         return res.json();
       })
       .then((result) => {
+        // console.log(result.videos);
         setDatas(result.videos);
         page.current = 2;
       })
@@ -38,7 +39,7 @@ const VideosPage = () => {
   const moreVideos = () => {
     //按下Load more後，用input state判斷search or init
     const init_url = `https://api.pexels.com/videos/popular?page=${page.current}&per_page=${per_page}`;
-    const search_url = `https://api.pexels.com/videos/search?query=${input}&page=${page.current}&per_page=${per_page}`;
+    const search_url = `https://api.pexels.com/videos/search?query=${input}&page=${page.current}&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
     const url = input ? search_url : init_url;
 
     fetch(url, {

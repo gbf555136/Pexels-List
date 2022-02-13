@@ -15,7 +15,7 @@ const Homepage = () => {
   const getPictures = () => {
     //page = 1
     const init_url = `https://api.pexels.com/v1/curated?page=1&per_page=${per_page}`;
-    const search_url = `https://api.pexels.com/v1/search?query=${input}&page=1&per_page=${per_page}`;
+    const search_url = `https://api.pexels.com/v1/search?query=${input}&page=1&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
     const url = input ? search_url : init_url;
 
     fetch(url, {
@@ -41,7 +41,7 @@ const Homepage = () => {
   const morePictures = () => {
     //按下Load more後，用input state判斷search or init
     const init_url = `https://api.pexels.com/v1/curated?page=${page.current}&per_page=${per_page}`;
-    const search_url = `https://api.pexels.com/v1/search?query=${input}&page=${page.current}&per_page=${per_page}`;
+    const search_url = `https://api.pexels.com/v1/search?query=${input}&page=${page.current}&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
     let url = input ? search_url : init_url;
 
     fetch(url, {
