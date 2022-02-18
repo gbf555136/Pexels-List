@@ -3,8 +3,8 @@ import Video from "../components/Video";
 import Search from "../components/Search";
 import Loadmore from "../components/Loadmore";
 
-const api_key = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
-// const api_key2 = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
+const api_key2 = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
+const api_key = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
 const per_page = 12;
 
 const VideosPage = () => {
@@ -17,6 +17,7 @@ const VideosPage = () => {
     const init_url = `https://api.pexels.com/videos/popular?page=1&per_page=${per_page}`;
     const search_url = `https://api.pexels.com/videos/search?query=${input}&page=1&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
     const url = input ? search_url : init_url;
+    console.log(url);
     fetch(url, {
       headers: {
         Accept: "application/json",
@@ -27,7 +28,6 @@ const VideosPage = () => {
         return res.json();
       })
       .then((result) => {
-        // console.log(result.videos);
         setDatas(result.videos);
         page.current = 2;
       })

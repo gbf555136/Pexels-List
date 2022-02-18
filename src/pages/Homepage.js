@@ -1,11 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import Search from "../components/Search";
 import Picture from "../components/Picture";
 import Loadmore from "../components/Loadmore";
 
-const api_key = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
-// const api_key2 = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
+const api_key2 = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
+const api_key = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
 const per_page = 12;
+
+const Test = () => {
+  console.log("123");
+  return <div>123</div>;
+};
+const MemoTest = memo(Test);
 
 const Homepage = () => {
   const [datas, setDatas] = useState([]);
@@ -17,6 +23,7 @@ const Homepage = () => {
     const init_url = `https://api.pexels.com/v1/curated?page=1&per_page=${per_page}`;
     const search_url = `https://api.pexels.com/v1/search?query=${input}&page=1&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
     const url = input ? search_url : init_url;
+    console.log(url);
 
     fetch(url, {
       method: "GET",
@@ -71,6 +78,7 @@ const Homepage = () => {
   return (
     <div style={{ minHeight: "100vh" }}>
       <Search setInput={setInput} />
+      <MemoTest />
       <div className="pictures">
         {datas.map((data) => {
           return <Picture data={data} key={data.id} />;
