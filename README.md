@@ -1,12 +1,12 @@
 # Pexels-List
 
-![2022-02-13_064037](https://user-images.githubusercontent.com/92734689/153731003-61d9d336-ede9-4286-8d51-df842215a130.png)
+![2022-02-22_204541](https://user-images.githubusercontent.com/92734689/155135055-f5bcc7e2-255c-431a-978c-bac249d4de17.png)
 
 - [Demo](https://gbf555136.github.io/Pexels-List/)
 
 - `React`框架撰寫
 
-- 使用`SCSS`、`Font Awesome`套件
+- 使用`SCSS`套件
 
 - `RWD`設計
 

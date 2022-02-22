@@ -33,7 +33,7 @@ const Homepage = () => {
         return res.json();
       })
       .then((result) => {
-        // console.log(result);
+        console.log(result);
         setDatas(result.photos);
         setIsLoading(false);
         page.current = 2;
