@@ -1,4 +1,4 @@
-# Pexels-List
+# Pexels List
 
 ![2022-02-22_204541](https://user-images.githubusercontent.com/92734689/155135055-f5bcc7e2-255c-431a-978c-bac249d4de17.png)
 
