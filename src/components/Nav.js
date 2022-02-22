@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <nav>
-      <a href="https://www.pexels.com" className="logo" target="_blank">
+      <a
+        href="https://www.pexels.com"
+        className="logo"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img src="https://images.pexels.com/lib/api/pexels.png" alt="" />
       </a>
       <ul>

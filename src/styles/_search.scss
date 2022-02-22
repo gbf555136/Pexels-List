@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
+  margin: 0.5rem;
   form {
     input,
     button {
       padding: 0.3rem 0.5rem;
       font-size: 1.5rem;
-      border: 2px solid black;
+      border: 2px solid #303030;
+      border-radius: 7px;
     }
     input {
       width: 30vw;
@@ -18,8 +19,8 @@
       background-color: rgb(71, 71, 71);
       color: white;
       border-left: none;
+      box-shadow: #303030 4px 4px 0 0;
       svg {
-        // pointer-events: none;
         width: 1.5rem;
         height: 1.5rem;
       }
@@ -27,6 +28,10 @@
         cursor: pointer;
         background-color: rgb(160, 160, 160);
         color: rgb(71, 71, 71);
+      }
+      &:active {
+        transform: translate(2px, 2px);
+        box-shadow: #303030 2px 2px 0 0;
       }
     }
   }

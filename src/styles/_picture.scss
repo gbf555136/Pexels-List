@@ -1,18 +1,27 @@
 .pictures {
   width: 85vw;
+  min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   .picture {
-    padding: 1rem 0.5rem;
-    // 290 * 5 = 1450 > 1440，max-column = 4
-    flex: 1 1 290px;
-    max-width: 360px;
+    margin: 0.5rem 0;
+    width: 23%;
     text-align: center;
-    .container {
+    .author {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      a {
+        &:hover {
+          color: #0064f9;
+        }
+      }
+    }
+    .pic_container {
       height: 40vh;
       overflow: hidden;
       a {
@@ -26,6 +35,35 @@
           }
         }
       }
+    }
+    .download {
+      a {
+        &:hover {
+          color: #0064f9;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .pictures {
+    .picture {
+      width: 31%;
+    }
+  }
+}
+@media screen and (max-width: 961px) {
+  .pictures {
+    .picture {
+      width: 48%;
+    }
+  }
+}
+@media screen and (max-width: 651px) {
+  .pictures {
+    .picture {
+      width: 100%;
     }
   }
 }

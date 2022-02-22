@@ -1,29 +1,26 @@
-import React, { useState, useEffect, useRef, memo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Search from "../components/Search";
 import Picture from "../components/Picture";
 import Loadmore from "../components/Loadmore";
+import IsLoading from "../components/IsLoading";
 
-const api_key2 = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
-const api_key = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
+const api_key = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
+// const api_key2 = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
 const per_page = 12;
-
-const Test = () => {
-  console.log("123");
-  return <div>123</div>;
-};
-const MemoTest = memo(Test);
 
 const Homepage = () => {
   const [datas, setDatas] = useState([]);
   const [input, setInput] = useState("");
+  const [currentInput, setCurrentInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const page = useRef(1);
 
   const getPictures = () => {
-    //page = 1
     const init_url = `https://api.pexels.com/v1/curated?page=1&per_page=${per_page}`;
-    const search_url = `https://api.pexels.com/v1/search?query=${input}&page=1&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
-    const url = input ? search_url : init_url;
-    console.log(url);
+    const search_url = `https://api.pexels.com/v1/search?query=${currentInput}&page=1&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
+    const url = currentInput ? search_url : init_url;
+    if (isLoading) return;
+    setIsLoading(true);
 
     fetch(url, {
       method: "GET",
@@ -36,21 +33,23 @@ const Homepage = () => {
         return res.json();
       })
       .then((result) => {
-        // console.log(result.photos);
+        // console.log(result);
         setDatas(result.photos);
+        setIsLoading(false);
         page.current = 2;
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err.message);
       });
   };
 
   const morePictures = () => {
-    //按下Load more後，用input state判斷search or init
+    //按下Load more後，用currentInput state判斷search or init
     const init_url = `https://api.pexels.com/v1/curated?page=${page.current}&per_page=${per_page}`;
-    const search_url = `https://api.pexels.com/v1/search?query=${input}&page=${page.current}&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
-    let url = input ? search_url : init_url;
-
+    const search_url = `https://api.pexels.com/v1/search?query=${currentInput}&page=${page.current}&per_page=${per_page}&locale=zh-CN&locale=zh-TW&locale=en-US`;
+    let url = currentInput ? search_url : init_url;
+    if (isLoading) return;
+    setIsLoading(true);
     fetch(url, {
       method: "GET",
       headers: {
@@ -64,21 +63,27 @@ const Homepage = () => {
       .then((result) => {
         // console.log([...datas, ...result.photos]);
         setDatas([...datas, ...result.photos]);
+        setIsLoading(false);
         page.current++;
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err.message);
       });
   };
 
   useEffect(() => {
     getPictures();
-  }, [input]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentInput]);
 
   return (
-    <div style={{ minHeight: "100vh" }}>
-      <Search setInput={setInput} />
-      <MemoTest />
+    <div>
+      {isLoading ? <IsLoading /> : null}
+      <Search
+        input={input}
+        setInput={setInput}
+        setCurrentInput={setCurrentInput}
+      />
       <div className="pictures">
         {datas.map((data) => {
           return <Picture data={data} key={data.id} />;

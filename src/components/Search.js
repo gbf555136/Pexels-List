@@ -1,15 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-const Search = ({ setInput }) => {
-  const searchHandler = (e) => {
+const Search = ({ input, setInput, setCurrentInput }) => {
+  const HandleSubmit = (e) => {
     e.preventDefault();
-    setInput(e.target.children[0].value);
-    e.target.children[0].value = "";
+    setCurrentInput(input);
+    setInput("");
+  };
+  const HandleChange = (e) => {
+    setInput(e.target.value);
   };
   return (
     <div className="search">
-      <form action="" onSubmit={searchHandler} acceptCharset="UTF-8">
-        <input type="text" placeholder="keyword" required />
+      <form action="" onSubmit={HandleSubmit} acceptCharset="UTF-8">
+        <input
+          type="text"
+          placeholder="keyword"
+          required
+          onChange={HandleChange}
+          value={input}
+        />
         <button type="submit">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           Search

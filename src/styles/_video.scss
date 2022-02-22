@@ -1,17 +1,27 @@
 .videos {
   width: 85vw;
+  min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  .author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    a {
+      &:hover {
+        color: #0064f9;
+      }
+    }
+  }
   .video {
-    padding: 1rem 0.5rem;
-    flex: 1 1 290px;
-    max-width: 360px;
+    margin: 0.5rem 0;
+    width: 23%;
     text-align: center;
-    .container {
+    .video_container {
       height: 40vh;
       position: relative;
       a {
@@ -45,19 +55,48 @@
       &:hover {
         a {
           svg {
-            animation: test 0.5s forwards;
+            animation: fadeOut 0.5s forwards;
           }
         }
       }
     }
   }
+  .download {
+    a {
+      &:hover {
+        color: #0064f9;
+      }
+    }
+  }
 }
 
-@keyframes test {
+@keyframes fadeOut {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .videos {
+    .video {
+      width: 31%;
+    }
+  }
+}
+@media screen and (max-width: 961px) {
+  .videos {
+    .video {
+      width: 48%;
+    }
+  }
+}
+@media screen and (max-width: 651px) {
+  .videos {
+    .video {
+      width: 100%;
+    }
   }
 }
