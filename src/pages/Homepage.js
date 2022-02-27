@@ -3,6 +3,7 @@ import Search from "../components/Search";
 import Picture from "../components/Picture";
 import Loadmore from "../components/Loadmore";
 import IsLoading from "../components/IsLoading";
+import NoResult from "../components/NoResult";
 
 const api_key = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
 // const api_key2 = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
@@ -77,8 +78,8 @@ const Homepage = () => {
   }, [currentInput]);
 
   return (
-    <div>
-      {isLoading ? <IsLoading /> : null}
+    <div className="homepage">
+      {isLoading ? <IsLoading /> : ""}
       <Search
         input={input}
         setInput={setInput}
@@ -89,11 +90,12 @@ const Homepage = () => {
           return <Picture data={data} key={data.id} />;
         })}
         {/* keep 4 columns layout*/}
-        <div className="picture" style={{ padding: 0 }}></div>
-        <div className="picture" style={{ padding: 0 }}></div>
-        <div className="picture" style={{ padding: 0 }}></div>
+        <div className="picture" style={{ padding: 0, margin: 0 }}></div>
+        <div className="picture" style={{ padding: 0, margin: 0 }}></div>
+        <div className="picture" style={{ padding: 0, margin: 0 }}></div>
       </div>
-      <Loadmore loading={morePictures} />
+      {!datas.length && !isLoading ? <NoResult /> : ""}
+      {datas.length ? <Loadmore loading={morePictures} /> : ""}
     </div>
   );
 };

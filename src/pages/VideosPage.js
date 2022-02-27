@@ -3,6 +3,7 @@ import Video from "../components/Video";
 import Search from "../components/Search";
 import Loadmore from "../components/Loadmore";
 import IsLoading from "../components/IsLoading";
+import NoResult from "../components/NoResult";
 
 // const api_key2 = "563492ad6f91700001000001279ab35e2a38409b9d20a6d615d7fd36";
 const api_key = "563492ad6f917000010000014e6b42ecf648436ab92e8a52e3046232";
@@ -75,8 +76,8 @@ const VideosPage = () => {
   }, [currentInput]);
 
   return (
-    <div>
-      {isLoading ? <IsLoading /> : null}
+    <div className="videopage">
+      {isLoading ? <IsLoading /> : ""}
       <Search
         input={input}
         setInput={setInput}
@@ -87,11 +88,12 @@ const VideosPage = () => {
           return <Video data={data} key={data.id} />;
         })}
         {/* keep 4 columns layout*/}
-        <div className="video" style={{ padding: 0 }}></div>
-        <div className="video" style={{ padding: 0 }}></div>
-        <div className="video" style={{ padding: 0 }}></div>
+        <div className="video" style={{ padding: 0, margin: 0 }}></div>
+        <div className="video" style={{ padding: 0, margin: 0 }}></div>
+        <div className="video" style={{ padding: 0, margin: 0 }}></div>
       </div>
-      <Loadmore loading={moreVideos} />
+      {!datas.length && !isLoading ? <NoResult /> : ""}
+      {datas.length ? <Loadmore loading={moreVideos} /> : ""}
     </div>
   );
 };
