@@ -14,8 +14,7 @@ const Nav = () => {
       </a>
       <ul>
         <li>
-          {/* <Link to="/">Homepage</Link> */}
-          <a href="/">Homepage</a>
+          <Link to="/">Homepage</Link>
         </li>
         <li>
           <Link to="/videosPage">Videos</Link>
