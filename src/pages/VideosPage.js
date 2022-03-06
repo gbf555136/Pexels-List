@@ -77,23 +77,24 @@ const VideosPage = () => {
 
   return (
     <div className="videopage">
-      {isLoading ? <IsLoading /> : ""}
       <Search
         input={input}
         setInput={setInput}
         setCurrentInput={setCurrentInput}
       />
       <div className="videos">
-        {datas.map((data) => {
-          return <Video data={data} key={data.id} />;
-        })}
+        {datas &&
+          datas.map((data) => {
+            return <Video data={data} key={data.id} />;
+          })}
         {/* keep 4 columns layout*/}
         <div className="video" style={{ padding: 0, margin: 0 }}></div>
         <div className="video" style={{ padding: 0, margin: 0 }}></div>
         <div className="video" style={{ padding: 0, margin: 0 }}></div>
       </div>
-      {!datas.length && !isLoading ? <NoResult /> : ""}
-      {datas.length ? <Loadmore loading={moreVideos} /> : ""}
+      {isLoading ? <IsLoading /> : ""}
+      {!datas || (!datas.length && !isLoading) ? <NoResult /> : ""}
+      {datas && datas.length ? <Loadmore loading={moreVideos} /> : ""}
     </div>
   );
 };

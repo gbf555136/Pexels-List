@@ -3,8 +3,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 const Search = ({ input, setInput, setCurrentInput }) => {
   const HandleSubmit = (e) => {
     e.preventDefault();
-    setCurrentInput(input);
-    setInput("");
+    if (input.trim()) {
+      setCurrentInput(input);
+      setInput("");
+    }
   };
   const HandleChange = (e) => {
     setInput(e.target.value);

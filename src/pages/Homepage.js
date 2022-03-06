@@ -22,7 +22,6 @@ const Homepage = () => {
     const url = currentInput ? search_url : init_url;
     if (isLoading) return;
     setIsLoading(true);
-
     fetch(url, {
       method: "GET",
       headers: {
@@ -79,23 +78,25 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
-      {isLoading ? <IsLoading /> : ""}
       <Search
         input={input}
         setInput={setInput}
         setCurrentInput={setCurrentInput}
       />
       <div className="pictures">
-        {datas.map((data) => {
-          return <Picture data={data} key={data.id} />;
-        })}
+        {/* {console.log(datas)} */}
+        {datas &&
+          datas.map((data) => {
+            return <Picture data={data} key={data.id} />;
+          })}
         {/* keep 4 columns layout*/}
         <div className="picture" style={{ padding: 0, margin: 0 }}></div>
         <div className="picture" style={{ padding: 0, margin: 0 }}></div>
         <div className="picture" style={{ padding: 0, margin: 0 }}></div>
       </div>
-      {!datas.length && !isLoading ? <NoResult /> : ""}
-      {datas.length ? <Loadmore loading={morePictures} /> : ""}
+      {isLoading ? <IsLoading /> : ""}
+      {!datas || (!datas.length && !isLoading) ? <NoResult /> : ""}
+      {datas && datas.length ? <Loadmore loading={morePictures} /> : ""}
     </div>
   );
 };
