@@ -1,26 +1,25 @@
 .videos {
   width: 85vw;
-  min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  .author {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    a {
-      &:hover {
-        color: #0064f9;
-      }
-    }
-  }
   .video {
     margin: 0.5rem 0;
     width: 23%;
     text-align: center;
+    .author {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      a {
+        &:hover {
+          color: #0064f9;
+        }
+      }
+    }
     .video_container {
       height: 40vh;
       position: relative;
@@ -55,16 +54,16 @@
       &:hover {
         a {
           svg {
-            animation: fadeOut 0.5s forwards;
+            animation: fadeOut 1s forwards;
           }
         }
       }
     }
-  }
-  .download {
-    a {
-      &:hover {
-        color: #0064f9;
+    .download {
+      a {
+        &:hover {
+          color: #0064f9;
+        }
       }
     }
   }

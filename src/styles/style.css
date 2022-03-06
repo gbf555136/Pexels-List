@@ -251,7 +251,6 @@ footer {
 
 .videos {
   width: 85vw;
-  min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
   display: -webkit-box;
@@ -267,20 +266,20 @@ footer {
       flex-wrap: wrap;
 }
 
-.videos .author {
+.videos .video {
+  margin: 0.5rem 0;
+  width: 23%;
+  text-align: center;
+}
+
+.videos .video .author {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.videos .author a:hover {
+.videos .video .author a:hover {
   color: #0064f9;
-}
-
-.videos .video {
-  margin: 0.5rem 0;
-  width: 23%;
-  text-align: center;
 }
 
 .videos .video .video_container {
@@ -321,11 +320,11 @@ footer {
 }
 
 .videos .video .video_container:hover a svg {
-  -webkit-animation: fadeOut 0.5s forwards;
-          animation: fadeOut 0.5s forwards;
+  -webkit-animation: fadeOut 1s forwards;
+          animation: fadeOut 1s forwards;
 }
 
-.videos .download a:hover {
+.videos .video .download a:hover {
   color: #0064f9;
 }
 
